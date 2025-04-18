@@ -1,5 +1,7 @@
 package model;
 
+import ui.AdminMenu;
+
 public class Admin extends User {
 
     public Admin(String username, String password) {
@@ -8,6 +10,7 @@ public class Admin extends User {
 
     @Override
     public void showMenu() {
-        System.out.println("Admin Menu");
+        AdminMenu adminMenu = new AdminMenu();
+        adminMenu.mainMenu();
     }
 }

@@ -22,7 +22,7 @@ public class StartMenu {
             System.out.println("├──────────┼─────────────────────┤");
             System.out.print("  Password │ ");
             String password = sc.nextLine();
-            System.out.printf("╘══════════╧═════════════════════╛%n");
+            System.out.println("╘══════════╧═════════════════════╛");
 
             user = userService.login(username, password);
 
@@ -44,16 +44,15 @@ public class StartMenu {
     }
 
     public void loginResult(String result) {
-        Util.addDelay(1000);
         if (result.equals("berhasil")) {
-            System.out.println(Util.ANSI_BLACK + Util.ANSI_GREEN_BACKGROUND + "╒════════════════════════════════╕" + Util.ANSI_RESET);
-            System.out.println(Util.ANSI_BLACK + Util.ANSI_GREEN_BACKGROUND + "│        Login berhasil !!!      │" + Util.ANSI_RESET);
-            System.out.println(Util.ANSI_BLACK + Util.ANSI_GREEN_BACKGROUND + "╘════════════════════════════════╛" + Util.ANSI_RESET );
+            Util.successMsg("╒════════════════════════════════╕");
+            Util.successMsg("│        Login berhasil !!!      │");
+            Util.successMsg("╘════════════════════════════════╛");
         } else {
-            System.out.println(Util.ANSI_BLACK + Util.ANSI_RED_BACKGROUND + "╒════════════════════════════════╕" + Util.ANSI_RESET);
-            System.out.println(Util.ANSI_BLACK + Util.ANSI_RED_BACKGROUND + "│          Login gagal !!!       │" + Util.ANSI_RESET);
-            System.out.println(Util.ANSI_BLACK + Util.ANSI_RED_BACKGROUND + "│       Kredensial bermasalah    │" + Util.ANSI_RESET);
-            System.out.println(Util.ANSI_BLACK + Util.ANSI_RED_BACKGROUND + "╘════════════════════════════════╛" + Util.ANSI_RESET);
+            Util.errorMsg("╒════════════════════════════════╕");
+            Util.errorMsg("│          Login gagal !!!       │");
+            Util.errorMsg("│       Kredensial bermasalah    │");
+            Util.errorMsg("╘════════════════════════════════╛");
         }
     }
 }

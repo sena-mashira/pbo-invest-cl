@@ -15,5 +15,13 @@ public class Util {
         }
     }
 
+    public static void successMsg(String message) {
+        System.out.println(Util.ANSI_BLACK + Util.ANSI_GREEN_BACKGROUND + message + Util.ANSI_RESET);
+    }
+
+    public static void errorMsg(String message) {
+        System.out.println(Util.ANSI_BLACK + Util.ANSI_RED_BACKGROUND + message + Util.ANSI_RESET);
+    }
+
 }
 
