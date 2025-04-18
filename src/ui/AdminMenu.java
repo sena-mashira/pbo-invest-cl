@@ -11,6 +11,7 @@ public class AdminMenu {
 
     UserService userService = new UserService();
     SahamMenu sahamMenu = new SahamMenu();
+    SBNMenu sbnMenu = new SBNMenu();
     SahamService sahamService = new SahamService();
 
     public void mainMenu() {
@@ -110,15 +111,40 @@ public class AdminMenu {
                 "│      INVEST - ADMIN - SBN      │\n" +
                 "╘════════════════════════════════╛\n");
 
-        System.out.print(
-                "╒══════╤═════════════════════════╕\n" +
-                "│  1.  │ Tambah SBN              │\n" +
-                "├──────┼─────────────────────────┤\n" +
-                "│  2.  │ Kembali                 │\n" +
-                "╘══════╧═════════════════════════╛\n");
+        int choice = 0;
 
-        System.out.print("╘═> ");
+        while (choice != 4) {
+            System.out.print(
+                    "╒══════╤═════════════════════════╕\n" +
+                    "│  1.  │ List SBN                │\n" +
+                    "├──────┼─────────────────────────┤\n" +
+                    "│  2.  │ Tambah SBN              │\n" +
+                    "├──────┼─────────────────────────┤\n" +
+                    "│  3.  │ Kembali                 │\n" +
+                    "╘══════╧═════════════════════════╛\n");
 
+            System.out.print("╘═> ");
+
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    sbnMenu.listSBN();
+                    break;
+                case 2:
+                    sbnMenu.tambahSBNMenu();
+                    break;
+                case 3:
+                    mainMenu();
+                    break;
+                default:
+                    Util.errorMsg("╒════════════════════════════════╕");
+                    Util.errorMsg("│      Input tidak valid !!!     │");
+                    Util.errorMsg("│       Pilih | 1 | 2 | 3 |      │");
+                    Util.errorMsg("╘════════════════════════════════╛");
+                    break;
+            }
+        }
     }
 
 }
