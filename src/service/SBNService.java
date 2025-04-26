@@ -27,4 +27,28 @@ public class SBNService {
     public Collection<SBN> getSemuaSBN() {
         return daftarSBN.values();
     }
+    public boolean beliSBN(Map<String, Double> portofolioSBN, String kode, int nominal) {
+        SBN sbn = daftarSBN.get(kode);
+
+        if (sbn == null) {
+            System.out.println("SBN dengan kode " + kode + " tidak ditemukan.");
+            return false;
+        }
+
+        if (nominal <= 0) {
+            System.out.println("Nominal pembelian harus lebih dari 0.");
+            return false;
+        }
+
+        if (sbn.getKuotaNasional() < nominal) {
+            System.out.println("Pembelian gagal. Kuota nasional tidak mencukupi.");
+            return false;
+        }
+        sbn.setKuotaNasional(sbn.getKuotaNasional() - nominal);
+
+        portofolioSBN.put(kode, portofolioSBN.getOrDefault(kode, 0.0) + nominal);
+
+        System.out.println("Berhasil membeli SBN " + sbn.getNama() + " sebesar Rp " + nominal);
+        return true;
+    }
 }
