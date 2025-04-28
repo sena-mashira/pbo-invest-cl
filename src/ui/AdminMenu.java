@@ -63,7 +63,7 @@ public class AdminMenu {
         while (true) {
             System.out.print(
                     "╒══════╤═════════════════════════╕\n" +
-                    "│  1.  │ Lihat Saham             │\n" +
+                    "│  1.  │ List Saham              │\n" +
                     "├──────┼─────────────────────────┤\n" +
                     "│  2.  │ Tambah Saham            │\n" +
                     "├──────┼─────────────────────────┤\n" +
@@ -74,10 +74,12 @@ public class AdminMenu {
 
             System.out.print("╘═> ");
             choice = sc.nextInt();
+            sc.nextLine();
 
             switch (choice) {
                 case 1:
                     sahamMenu.listSaham();
+                    Util.pressToContinue(sc);
                     break;
                 case 2:
                     sahamMenu.tambahSahamMenu();
@@ -118,10 +120,12 @@ public class AdminMenu {
             System.out.print("╘═> ");
 
             choice = sc.nextInt();
+            sc.nextLine();
 
             switch (choice) {
                 case 1:
                     sbnMenu.listSBN();
+                    Util.pressToContinue(sc);
                     break;
                 case 2:
                     sbnMenu.tambahSBNMenu();

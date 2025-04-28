@@ -43,7 +43,7 @@ public class SBNMenu {
         System.out.println("├────────────┼───────────────────┤");
         System.out.print("  Kuota      │ ");
         int kuota = sc.nextInt();
-        System.out.println("╘═════════════╧══════════════════╛");
+        System.out.println("╘════════════╧═══════════════════╛");
 
         SBN sbn = new SBN(kode, nama, bunga, LocalDate.parse(tanggal), nominal, kuota);
 
