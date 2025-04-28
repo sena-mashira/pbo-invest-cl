@@ -7,13 +7,15 @@ public class SBN {
     private String nama;
     private double bunga;
     private LocalDate tanggalJatuhTempo;
+    private double nominal;
     private int kuotaNasional;
 
-    public SBN(String kode, String nama, double bunga, LocalDate tanggalJatuhTempo, int kuotaNasional) {
+    public SBN(String kode, String nama, double bunga, LocalDate tanggalJatuhTempo, double nominal,  int kuotaNasional) {
         this.kode = kode;
         this.nama = nama;
         this.bunga = bunga;
         this.tanggalJatuhTempo = tanggalJatuhTempo;
+        this.nominal = nominal;
         this.kuotaNasional = kuotaNasional;
     }
 
@@ -33,6 +35,14 @@ public class SBN {
         return tanggalJatuhTempo;
     }
 
+    public double getNominal() {
+        return nominal;
+    }
+
+    public void setNominal(double nominal) {
+        this.nominal = nominal;
+    }
+
     public int getKuotaNasional() {
         return kuotaNasional;
     }
@@ -41,17 +51,9 @@ public class SBN {
         this.kuotaNasional = kuotaNasional;
     }
 
-    // Cek apakah masih aktif
-    public boolean isAktif() {
-        return LocalDate.now().isBefore(tanggalJatuhTempo);
-    }
-
-    public boolean beli(int jumlah) {
-        if (kuotaNasional >= jumlah && isAktif()) {
-            kuotaNasional -= jumlah;
-            return true;
-        }
-        return false;
+    public double hitungKuponPerBulan() {
+        double bungaBulanan = (bunga/100) / 12;
+        return bungaBulanan * 0.9 * nominal;
     }
 }
 

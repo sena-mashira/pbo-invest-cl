@@ -1,7 +1,5 @@
 package ui;
 
-import service.UserService;
-import service.SahamService;
 import util.Util;
 
 import java.util.Scanner;
@@ -9,10 +7,8 @@ import java.util.Scanner;
 public class AdminMenu {
     Scanner sc = new Scanner(System.in);
 
-    UserService userService = new UserService();
     SahamMenu sahamMenu = new SahamMenu();
     SBNMenu sbnMenu = new SBNMenu();
-    SahamService sahamService = new SahamService();
 
     public void mainMenu() {
         System.out.print(
@@ -22,7 +18,7 @@ public class AdminMenu {
 
         int choice = 0;
 
-        while (choice == 0) {
+        while (true) {
             System.out.print(
                     "╒══════╤═════════════════════════╕\n" +
                     "│  1.  │ Saham                   │\n" +
@@ -31,7 +27,6 @@ public class AdminMenu {
                     "├──────┼─────────────────────────┤\n" +
                     "│  3.  │ Logout                  │\n" +
                     "╘══════╧═════════════════════════╛\n");
-
             System.out.print("╘═> ");
 
             choice = sc.nextInt();
@@ -47,10 +42,8 @@ public class AdminMenu {
                     Util.successMsg("╒════════════════════════════════╕");
                     Util.successMsg("│       Logout berhasil !!!      │");
                     Util.successMsg("╘════════════════════════════════╛");
-                    userService.start();
-                    break;
+                    return;
                 default:
-                    choice = 0;
                     Util.errorMsg("╒════════════════════════════════╕");
                     Util.errorMsg("│      Input tidak valid !!!     │");
                     Util.errorMsg("│       Pilih | 1 | 2 | 3 |      │");
@@ -67,7 +60,7 @@ public class AdminMenu {
 
         int choice = 0;
 
-        while (choice != 4) {
+        while (true) {
             System.out.print(
                     "╒══════╤═════════════════════════╕\n" +
                     "│  1.  │ Lihat Saham             │\n" +
@@ -93,8 +86,7 @@ public class AdminMenu {
                     sahamMenu.ubahSahamMenu();
                     break;
                 case 4:
-                    mainMenu();
-                    break;
+                    return;
                 default:
                     Util.errorMsg("╒════════════════════════════════╕");
                     Util.errorMsg("│      Input tidak valid !!!     │");
@@ -113,7 +105,7 @@ public class AdminMenu {
 
         int choice = 0;
 
-        while (choice != 4) {
+        while (true) {
             System.out.print(
                     "╒══════╤═════════════════════════╕\n" +
                     "│  1.  │ List SBN                │\n" +
@@ -135,8 +127,7 @@ public class AdminMenu {
                     sbnMenu.tambahSBNMenu();
                     break;
                 case 3:
-                    mainMenu();
-                    break;
+                    return;
                 default:
                     Util.errorMsg("╒════════════════════════════════╕");
                     Util.errorMsg("│      Input tidak valid !!!     │");

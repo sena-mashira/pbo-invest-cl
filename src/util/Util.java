@@ -1,5 +1,7 @@
 package util;
 
+import java.util.Scanner;
+
 public class Util {
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
@@ -21,6 +23,11 @@ public class Util {
 
     public static void errorMsg(String message) {
         System.out.println(Util.ANSI_BLACK + Util.ANSI_RED_BACKGROUND + message + Util.ANSI_RESET);
+    }
+
+    public static void pressToContinue(Scanner sc) {
+        System.out.println("Tekan \"ENTER\" untuk melanjutkan... ");
+        sc.nextLine();
     }
 
 }

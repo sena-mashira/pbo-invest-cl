@@ -4,11 +4,13 @@ public class Saham {
     private String kode;
     private String namaPerusahaan;
     private double harga;
+    private int jumlah;
 
-    public Saham(String kode, String namaPerusahaan, double harga) {
+    public Saham(String kode, String namaPerusahaan, double harga, int jumlah) {
         this.kode = kode;
         this.namaPerusahaan = namaPerusahaan;
         this.harga = harga;
+        this.jumlah = jumlah;
     }
 
     public String getKode() {
@@ -27,8 +29,11 @@ public class Saham {
         this.harga = harga;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%-10s %-20s Rp%,.2f", kode, namaPerusahaan, harga);
+    public double getJumlah() {
+        return jumlah;
+    }
+
+    public void setJumlah(int jumlah) {
+        this.jumlah = jumlah;
     }
 }
