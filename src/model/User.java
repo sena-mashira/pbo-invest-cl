@@ -1,7 +1,5 @@
 package model;
 
-import java.util.HashMap;
-
 public abstract class User {
     private String username;
     private String password;
@@ -18,7 +16,4 @@ public abstract class User {
     public boolean checkPassword(String inputPassword) {
         return this.password.equals(inputPassword);
     }
-
-    public abstract void showMenu();
-
 }

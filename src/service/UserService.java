@@ -9,7 +9,9 @@ public class UserService {
 
     public void start() {
         StartMenu startMenu = new StartMenu();
-        startMenu.login();
+        while(true) {
+            startMenu.login();
+        }
     }
 
     public void addUser(User user) {

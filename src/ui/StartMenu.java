@@ -1,5 +1,7 @@
 package ui;
 
+import model.Admin;
+import model.Customer;
 import model.User;
 import service.UserService;
 import util.Util;
@@ -9,6 +11,8 @@ import java.util.Scanner;
 public class StartMenu {
     Scanner sc = new Scanner(System.in);
     UserService userService = new UserService();
+    AdminMenu adminMenu = new AdminMenu();
+    CustomerMenu customerMenu = new CustomerMenu();
 
     public void login() {
         User user = null;
@@ -28,13 +32,17 @@ public class StartMenu {
 
             if (user != null) {
                 loginResult("berhasil");
-                user.showMenu();
+                if (user instanceof Admin) {
+                    adminMenu.mainMenu();
+                } else if (user instanceof Customer) {
+                    customerMenu.mainMenu();
+                }
             } else {
                 loginResult("gagal");
             }
         }
 
-        sc.close();
+//        sc.close();
     }
 
     public void header() {
