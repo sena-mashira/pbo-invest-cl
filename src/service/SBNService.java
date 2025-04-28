@@ -27,6 +27,7 @@ public class SBNService {
     public Collection<SBN> getSemuaSBN() {
         return daftarSBN.values();
     }
+
     public boolean beliSBN(Map<String, Double> portofolioSBN, String kode, int nominal) {
         SBN sbn = daftarSBN.get(kode);
 
@@ -51,4 +52,27 @@ public class SBNService {
         System.out.println("Berhasil membeli SBN " + sbn.getNama() + " sebesar Rp " + nominal);
         return true;
     }
-}
+    public void simulasiKuponBulananSBN(Map<String, Double> portofolioSBN) {
+        System.out.println("\n--- Simulasi Kupon Bulanan SBN ---");
+
+        for (Map.Entry<String, Double> entry : portofolioSBN.entrySet()) {
+            String kode = entry.getKey();
+            double nominal = entry.getValue();
+
+            SBN sbn = daftarSBN.get(kode);
+
+            if (sbn != null) {
+                double bunga = sbn.getBunga();
+                double kuponBulanan = (bunga / 100 / 12) * 0.9 * nominal;
+
+                System.out.println("Kode: " + sbn.getKode());
+                System.out.println("Nama: " + sbn.getNama());
+                System.out.println("Nominal Investasi: Rp " + nominal);
+                System.out.printf("Kupon Per Bulan (90%% dari %.2f%%): Rp %.2f\n\n", bunga, kuponBulanan);
+            }
+        }
+
+        if (portofolioSBN.isEmpty()) {
+            System.out.println("Anda belum memiliki investasi SBN.");
+        }
+    }
