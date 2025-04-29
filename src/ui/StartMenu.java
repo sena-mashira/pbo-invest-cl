@@ -8,18 +8,20 @@ import util.Util;
 
 import java.util.Scanner;
 
+// View class that show startup menu, when user first run the program
 public class StartMenu {
     Scanner sc = new Scanner(System.in);
     UserService userService = new UserService();
     AdminMenu adminMenu = new AdminMenu();
     CustomerMenu customerMenu = new CustomerMenu();
 
+// Function show the Login Menu
     public void login() {
         User user = null;
         header();
 
+//        Check if user is logged in, if not run the code below
         while (user == null) {
-
             System.out.println("╒════════════════════════════════╕");
             System.out.print("  Username │ ");
             String username = sc.nextLine();
@@ -28,8 +30,10 @@ public class StartMenu {
             String password = sc.nextLine();
             System.out.println("╘══════════╧═════════════════════╛");
 
+//            Check the credential
             user = userService.login(username, password);
 
+//            Check if it's an Admin or a Customer
             if (user != null) {
                 loginResult("berhasil");
                 if (user instanceof Admin) {
@@ -41,8 +45,6 @@ public class StartMenu {
                 loginResult("gagal");
             }
         }
-
-//        sc.close();
     }
 
     public void header() {

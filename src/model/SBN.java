@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
+// Model for SBN
 public class SBN {
     private String kode;
     private String nama;
@@ -51,6 +52,7 @@ public class SBN {
         this.kuotaNasional = kuotaNasional;
     }
 
+//    Simulation of SBN Coupon per month using %bunga / 12 bulan * 90% * nominal
     public double hitungKuponPerBulan() {
         double bungaBulanan = (bunga/100) / 12;
         return bungaBulanan * 0.9 * nominal;

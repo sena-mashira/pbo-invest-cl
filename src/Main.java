@@ -1,17 +1,14 @@
-import data.SahamData;
-import service.SahamService;
 import service.UserService;
 import model.*;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+//        Create object of UserService
         UserService userService = new UserService();
-
+//        Hardcode Account
         userService.addUser(new Admin("admin", "admin123"));
         userService.addUser(new Customer("customer", "customer123"));
-
+//        Start the program
         userService.start();
     }
 }

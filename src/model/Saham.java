@@ -1,5 +1,6 @@
 package model;
 
+// Model for Saham
 public class Saham {
     private String kode;
     private String namaPerusahaan;

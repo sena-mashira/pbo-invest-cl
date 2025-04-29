@@ -4,12 +4,14 @@ import util.Util;
 
 import java.util.Scanner;
 
+// View class that show Customer Menu
 public class CustomerMenu {
     Scanner sc = new Scanner(System.in);
     SahamMenu sahamMenu = new SahamMenu();
     SBNMenu sbnMenu = new SBNMenu();
     PortofolioMenu portofolioMenu = new PortofolioMenu();
 
+//    Function to show all choice menu
     public void mainMenu() {
         System.out.print(
                 "╒════════════════════════════════╕\n" +
@@ -39,6 +41,7 @@ public class CustomerMenu {
             choice = sc.nextInt();
             sc.nextLine();
 
+//            Swicth to dedicated destination
             switch (choice) {
                 case 1:
                     sahamMenu.beliSahamMenu();
