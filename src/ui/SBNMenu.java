@@ -7,10 +7,12 @@ import util.Util;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+// View class that show SBN Menu
 public class SBNMenu {
     Scanner sc = new Scanner(System.in);
     SBNService sbnService = new SBNService();
 
+//    Function to show all SBN listed
     public void listSBN() {
         System.out.print(
                 "╒════════════╤══════════════════════╤════════════╤═════════════════╤═════════════════╤════════════╕\n" +
@@ -23,6 +25,7 @@ public class SBNMenu {
         System.out.println("╘════════════╧══════════════════════╧════════════╧═════════════════╧═════════════════╧════════════╛");
     }
 
+//    Function to show Add SBN Menu
     public void tambahSBNMenu() {
         System.out.println("╒════════════╤═══════════════════╕");
         System.out.print("  Kode       │ ");
@@ -43,7 +46,7 @@ public class SBNMenu {
         System.out.println("├────────────┼───────────────────┤");
         System.out.print("  Kuota      │ ");
         int kuota = sc.nextInt();
-        System.out.println("╘═════════════╧══════════════════╛");
+        System.out.println("╘════════════╧═══════════════════╛");
 
         SBN sbn = new SBN(kode, nama, bunga, LocalDate.parse(tanggal), nominal, kuota);
 
@@ -59,10 +62,12 @@ public class SBNMenu {
         }
     }
 
+//    Function to show Owned SBN Menu
     public void portofolioSBN() {
+//        Check if it's empty
         if (sbnService.isSBNNull()) {
             Util.errorMsg("╒════════════════════════════════╕");
-            Util.errorMsg("│        Tidak ada Saham !!!     │");
+            Util.errorMsg("│         Tidak ada SBN !!!      │");
             Util.errorMsg("╘════════════════════════════════╛");
             return;
         }
@@ -78,12 +83,13 @@ public class SBNMenu {
         System.out.println("╘════════════╧══════════════════════╧════════════╧═════════════════╧═════════════════╧════════════╧══════════════════════╛");
     }
 
+//    Function to show Buy SBN Menu
     public void beliSBNMenu() {
-
+// Call the listed SBN
         listSBN();
-
         Util.pressToContinue(sc);
 
+//        Doing loop until user buy the right way, or until the program error
         while (true) {
             System.out.println("╒════════════╤═══════════════════╕");
             System.out.print("  Kode       │ ");

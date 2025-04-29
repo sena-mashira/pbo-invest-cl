@@ -6,11 +6,12 @@ import util.Util;
 
 import java.util.Scanner;
 
+// View class that show Saham Menu
 public class SahamMenu {
     Scanner sc = new Scanner(System.in);
     SahamService sahamService = new SahamService();
 
-    // Admin Menu
+    //    Function to show all Saham listed
     public void listSaham() {
         System.out.print(
                 "╒══════╤════════════════════════════════╤════════════╤════════════╕\n" +
@@ -23,6 +24,7 @@ public class SahamMenu {
         System.out.println("╘══════╧════════════════════════════════╧════════════╧════════════╛");
     }
 
+//    Function to show Add Saham Menu
     public void tambahSahamMenu() {
         System.out.println("╒════════════╤═══════════════════╕");
         System.out.print("  Kode       │ ");
@@ -53,10 +55,10 @@ public class SahamMenu {
         }
     }
 
+//    Function to show Change Saham Price Menu
     public void ubahSahamMenu() {
-
+// Call the listed Saham
         listSaham();
-
         Util.pressToContinue(sc);
 
         System.out.println("╒════════════╤═══════════════════╕");
@@ -78,7 +80,7 @@ public class SahamMenu {
         }
     }
 
-    // Customer Menu
+//    Function to show Owned Saham Menu
     public void portofolioSaham() {
         int jumlah;
         double hargaTerbaru;
@@ -96,12 +98,13 @@ public class SahamMenu {
         System.out.println("╘════════════╧════════════════════════════════╧════════════════════════════╧════════════════════════════╧════════════════╛");
     }
 
+//    Function to show Buy Saham Menu
     public void beliSahamMenu() {
-
+//        Call the listed SBN
         listSaham();
-
         Util.pressToContinue(sc);
 
+//        Doing loop until user buy the right way, or until the program error
         while (true) {
             System.out.println("╒════════════╤═══════════════════╕");
             System.out.print("  Kode       │ ");
@@ -145,17 +148,17 @@ public class SahamMenu {
         }
     }
 
+//    Function to show Sell Saham Menu
     public void jualSahamMenu() {
-
+//        Check if owned Saham is empty
         if (sahamService.isSahamNull()) {
             Util.errorMsg("╒════════════════════════════════╕");
             Util.errorMsg("│        Tidak ada Saham !!!     │");
             Util.errorMsg("╘════════════════════════════════╛");
             return;
         }
-
+//        Call the owned Saham
         portofolioSaham();
-
         Util.pressToContinue(sc);
 
         System.out.println("╒════════════╤═══════════════════╕");
@@ -178,6 +181,7 @@ public class SahamMenu {
                 Util.errorMsg("╒════════════════════════════════╕");
                 Util.errorMsg("│    Saham tidak ditemukan !!!   │");
                 Util.errorMsg("╘════════════════════════════════╛");
+                break;
             case "kekurangan":
                 Util.errorMsg("╒════════════════════════════════╕");
                 Util.errorMsg("│       Jumlah lembar harus      │");

@@ -4,12 +4,13 @@ import util.Util;
 
 import java.util.Scanner;
 
+// View class that show Admin Menu
 public class AdminMenu {
     Scanner sc = new Scanner(System.in);
-
     SahamMenu sahamMenu = new SahamMenu();
     SBNMenu sbnMenu = new SBNMenu();
 
+//    Function to show all choice menu
     public void mainMenu() {
         System.out.print(
                 "╒════════════════════════════════╕\n" +
@@ -31,6 +32,7 @@ public class AdminMenu {
 
             choice = sc.nextInt();
 
+//            Swicth to dedicated destination
             switch (choice) {
                 case 1:
                     sahamMenu();
@@ -52,6 +54,7 @@ public class AdminMenu {
         }
     }
 
+//    Function to show main Saham choice menu
     public void sahamMenu() {
         System.out.print(
                 "╒════════════════════════════════╕\n" +
@@ -63,7 +66,7 @@ public class AdminMenu {
         while (true) {
             System.out.print(
                     "╒══════╤═════════════════════════╕\n" +
-                    "│  1.  │ Lihat Saham             │\n" +
+                    "│  1.  │ List Saham              │\n" +
                     "├──────┼─────────────────────────┤\n" +
                     "│  2.  │ Tambah Saham            │\n" +
                     "├──────┼─────────────────────────┤\n" +
@@ -74,10 +77,12 @@ public class AdminMenu {
 
             System.out.print("╘═> ");
             choice = sc.nextInt();
+            sc.nextLine();
 
             switch (choice) {
                 case 1:
                     sahamMenu.listSaham();
+                    Util.pressToContinue(sc);
                     break;
                 case 2:
                     sahamMenu.tambahSahamMenu();
@@ -97,6 +102,7 @@ public class AdminMenu {
         }
     }
 
+//    Function to show main SBN choice menu
     public void sbnMenu() {
         System.out.print(
                 "╒════════════════════════════════╕\n" +
@@ -118,10 +124,12 @@ public class AdminMenu {
             System.out.print("╘═> ");
 
             choice = sc.nextInt();
+            sc.nextLine();
 
             switch (choice) {
                 case 1:
                     sbnMenu.listSBN();
+                    Util.pressToContinue(sc);
                     break;
                 case 2:
                     sbnMenu.tambahSBNMenu();
