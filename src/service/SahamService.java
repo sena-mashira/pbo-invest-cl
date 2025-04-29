@@ -80,7 +80,7 @@ public class SahamService {
             sahamYangDibeli = new Saham(
                     sahamDipilih.getKode(),
                     sahamDipilih.getNamaPerusahaan(),
-                    harga*jumlah,
+                    harga,
                     jumlah
             );
 //            Store Saham into SahamData

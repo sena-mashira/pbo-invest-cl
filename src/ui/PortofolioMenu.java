@@ -17,7 +17,7 @@ public class PortofolioMenu {
 //    Function to show all owned Saham and SBN
     public void mainMenu() {
 //        Check if Saham and SBN is not empty
-        if (!sahamService.isSahamNull() && !sbnService.isSBNNull()) {
+        if (!(sahamService.isSahamNull() && sbnService.isSBNNull())) {
             System.out.println(
                     "╒════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╕\n" +
                     "│                              INVEST - CUSTOMER - PORTOFOLIO SAHAM DAN SURAT BERHARGA NEGARA                            |\n" +
