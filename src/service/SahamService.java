@@ -15,7 +15,7 @@ public class SahamService {
     }
 
     public boolean isSahamNull() {
-        if(SahamData.getPortofolioSaham().size() == 0){
+        if(SahamData.getPortofolioSaham().isEmpty()){
             return true;
         } else {
             return false;
@@ -106,7 +106,6 @@ public class SahamService {
             SahamData.getPortofolioSaham().remove(kode);
         }
 
-        System.out.println("Berhasil menjual " + jumlah + " lembar saham " + kode + ".");
         return "berhasil";
     }
 }

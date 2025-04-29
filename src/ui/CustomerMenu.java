@@ -64,7 +64,7 @@ public class CustomerMenu {
                 default:
                     Util.errorMsg("╒════════════════════════════════╕");
                     Util.errorMsg("│      Input tidak valid !!!     │");
-                    Util.errorMsg("│       Pilih | 1 | 2 | 3 |      │");
+                    Util.errorMsg("│ Pilih | 1 | 2 | 3 | 4 | 5 | 6 |│");
                     Util.errorMsg("╘════════════════════════════════╛");
             }
         }

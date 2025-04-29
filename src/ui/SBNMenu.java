@@ -62,7 +62,7 @@ public class SBNMenu {
     public void portofolioSBN() {
         if (sbnService.isSBNNull()) {
             Util.errorMsg("╒════════════════════════════════╕");
-            Util.errorMsg("│        Tidak ada Saham !!!     │");
+            Util.errorMsg("│         Tidak ada SBN !!!      │");
             Util.errorMsg("╘════════════════════════════════╛");
             return;
         }

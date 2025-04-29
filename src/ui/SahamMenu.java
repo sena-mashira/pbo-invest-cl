@@ -178,6 +178,7 @@ public class SahamMenu {
                 Util.errorMsg("╒════════════════════════════════╕");
                 Util.errorMsg("│    Saham tidak ditemukan !!!   │");
                 Util.errorMsg("╘════════════════════════════════╛");
+                break;
             case "kekurangan":
                 Util.errorMsg("╒════════════════════════════════╕");
                 Util.errorMsg("│       Jumlah lembar harus      │");

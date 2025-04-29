@@ -16,7 +16,7 @@ public class SBNService {
     }
 
     public boolean isSBNNull() {
-        if(SBNData.getPortofolioSBN().size() == 0){
+        if(SBNData.getPortofolioSBN().isEmpty()){
             return true;
         } else {
             return false;
